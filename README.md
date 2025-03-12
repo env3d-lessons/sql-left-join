@@ -206,12 +206,13 @@ NOTE: The answer needs to be in the form "[First Name] [Last Name] is [XX] years
 
 For each employee, show the First Name, Last Name, and Total amount of
 sales they have done.  Show 0 if the employee has not made any sales.
-Order by the total sales in descending order.
+Order by the total sales in descending order.  For employees with
+no sales, sort by their employee id in ascending order.
 
 ```
-Peacock|Jane|833.040000000001
-Park|Margaret|775.400000000001
-Johnson|Steve|720.160000000001
+Peacock|Jane|833.04
+Park|Margaret|775.4
+Johnson|Steve|720.16
 Adams|Andrew|0
 Edwards|Nancy|0
 Mitchell|Michael|0
