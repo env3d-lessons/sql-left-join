@@ -1,0 +1,14 @@
+{
+  "name": "Python Dev Container",
+  "features": {},
+  "postAttachCommand": "rm -rf ~/.vscode-remote/extensions/github.copilot* && chmod -w ~/.vscode-remote/extensions; exit",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "extensions.ignoreRecommendations": true,
+        "github.copilot.enable": { "*": false },
+        "github.copilot.enablePanel": false
+      }
+    }
+  }
+}
