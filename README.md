@@ -44,14 +44,6 @@ LEFT JOIN Orders ON Users.id = Orders.user_id;
 
 Since Carol has no orders, `NULL` appears for the **Orders.product** column.
 
-# Left-Join vs Correlated Subquery
-
-A **correlated subquery** can sometimes replace a **LEFT JOIN**, but it depends
-on the use case. Correlated subqueries can simplify certain queries, but they may
-be **less efficient** than a `LEFT JOIN` because they execute once per row in
-the outer query.
-
-
 ---
 
 ### **Example: Using LEFT JOIN**
