@@ -51,6 +51,11 @@ on the use case. Correlated subqueries can simplify certain queries, but they ma
 be **less efficient** than a `LEFT JOIN` because they execute once per row in
 the outer query.
 
+
+---
+
+### **Example: Using LEFT JOIN**
+
 First prepare the sample dataset:
 
 ```sql
@@ -82,9 +87,6 @@ INSERT INTO Orders (id, user_id, product, order_date) VALUES
 
 ```
 
----
-
-### **Example 1: Using LEFT JOIN**
 #### Scenario: Get each user's most recent order.
 
 ```sql
@@ -96,29 +98,7 @@ AND Orders.order_date = (
 );
 ```
 
-🔹 **Pros**: More efficient in many cases (indexing helps).  
-🔹 **Cons**: Slightly more complex than a subquery.
-
 ---
-
-### **Example 2: Using a Correlated Subquery**
-```sql
-SELECT 
-    id, 
-    name, 
-    (SELECT product FROM Orders o
-     WHERE o.user_id = Users.id 
-     ORDER BY order_date DESC 
-     LIMIT 1) AS latest_product,
-    (SELECT order_date FROM Orders o
-     WHERE o.user_id = Users.id 
-     ORDER BY order_date DESC 
-     LIMIT 1) AS latest_order_date
-FROM Users;
-```
-
-🔹 **Pros**: More readable for simple lookups.  
-🔹 **Cons**: Runs a subquery **for each row**, which can be slow on large datasets.
 
 # Exercises
 
