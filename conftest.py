@@ -85,7 +85,7 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
             data=data,
             headers={
                 "Content-Type": "application/json",
-                "User-Agent": "pytest-lti-bridge"  # <-- Added User-Agent header
+                "User-Agent": "pytest-lti-bridge"
             },
             method="POST"
         )
@@ -101,7 +101,7 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     except urllib.error.HTTPError as e:
         error_body = e.read().decode("utf-8") if e.fp else ""
         terminalreporter.write_line(f"Status:     HTTP Error {e.code} - {e.reason}")
-        terminalreporter.write_line(f"Response:   {error_body}")  # <-- Fixed string interpolation
+        terminalreporter.write_line(f"Response:   {error_body}")
         terminalreporter.write_sep("=", "Grade Submission Failed", red=True)
 
     except Exception as e:
